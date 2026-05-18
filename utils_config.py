@@ -79,6 +79,7 @@ def load_config(config_path=CONFIG_FILE_PATH):
         "power_status_alert": config["ALERT_CONDITION"]["power_status"],
         "test_status_alert": config["ALERT_CONDITION"]["test_status"],
         "idle_time_alert": config["ALERT_CONDITION"]["idle_time"],
+        "show_ok_status_aswell": config["ALERT_CONDITION"].getboolean("show_ok_status_aswell",fallback=False)
     }
 
     print("\nLoaded Rack Prefixes:")
