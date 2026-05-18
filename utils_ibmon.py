@@ -229,27 +229,49 @@ def get_power_status(td_element):
 # IDLE TIME ALERT
 # =========================================================
 def is_idle_time_alert(idle_time_value, alert_minutes):
+
     try:
         total_minutes = 0
 
+        # DAYS
+        day_match = re.search(
+            r"(\d+)d",
+            idle_time_value
+        )
+
+        # HOURS
         hour_match = re.search(
             r"(\d+)h",
             idle_time_value
         )
 
+        # MINUTES
         minute_match = re.search(
             r"(\d+)m",
             idle_time_value
         )
 
-        if hour_match:
-            total_minutes += int(hour_match.group(1)) * 60
+        # CONVERT DAYS -> MINUTES
+        if day_match:
+            total_minutes += (
+                int(day_match.group(1)) * 24 * 60
+            )
 
+        # CONVERT HOURS -> MINUTES
+        if hour_match:
+            total_minutes += (
+                int(hour_match.group(1)) * 60
+            )
+
+        # ADD MINUTES
         if minute_match:
-            total_minutes += int(minute_match.group(1))
+            total_minutes += int(
+                minute_match.group(1)
+            )
 
         return total_minutes > int(alert_minutes)
 
-    except:
+    except Exception as e:
+        print(f"Idle time parsing failed: {e}")
         return False
 
