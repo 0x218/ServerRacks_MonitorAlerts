@@ -13,7 +13,7 @@ def log_alert(
 ):
     message = (
         f"{header_data['location']} | "
-        f"Rack# {header_data['serial']} | "
+        f"Rack# {header_data['rack_serial_number']} | "
         f"CT Loc {server_data['loc']} | "
         f"CT# {server_data['serial_number']} | "
         f"Network={server_data['network']} | "
