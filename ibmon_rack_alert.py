@@ -402,10 +402,10 @@ if __name__ == "__main__":
         start_time = time.time()
         main()
         end_time = time.time()
+        print_execution_seconds(start_time, end_time)
     except KeyboardInterrupt:
         print(
             "\nProgram stopped by user"
         )
     print("IBMon alert completed successfully!")
-    print_execution_seconds(start_time, end_time)
 
