@@ -130,9 +130,12 @@ def parse_tooltip_table(
                     f"{status_value}"
                 )
             else:
-                print(
-                    f"{loc_value} | All the status are as expected."
-                )
+                if settings["show_ok_status_aswell"]:
+                    print(
+                        "\033[32m"
+                        f"{loc_value} | All the status are as expected."
+                        "\033[0m"
+                    )
 
         except Exception as e:
             print(f"Failed parsing row: {e}")
