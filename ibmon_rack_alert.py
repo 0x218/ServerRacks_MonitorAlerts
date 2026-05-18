@@ -39,6 +39,7 @@ from utils_logger import (
     setup_logger,
     log_alert,
 )
+from utils_misc import print_execution_seconds
 
 # =========================================================
 # PARSE TABLE
@@ -398,12 +399,13 @@ def main():
 # =========================================================
 if __name__ == "__main__":
     try:
+        start_time = time.time()
         main()
+        end_time = time.time()
     except KeyboardInterrupt:
         print(
             "\nProgram stopped by user"
         )
-    print(
-        "Adam Alert Parser "
-        "completed successfully!"
-    )
+    print("IBMon alert completed successfully!")
+    print_execution_seconds(start_time, end_time)
+
