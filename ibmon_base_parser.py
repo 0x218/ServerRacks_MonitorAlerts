@@ -36,6 +36,13 @@ sheet_name = "Minimal"
 # =========================================================
 def extract_rack_data(space_element):
     try:
+        rack_numbers_elements = space_element.find_elements(
+            By.CLASS_NAME,
+            "rack-numbers"
+        )
+        if not rack_numbers_elements:
+            return None
+        
         # SPACE LABEL
         space_label = space_element.find_element(
             By.CLASS_NAME,
@@ -49,6 +56,7 @@ def extract_rack_data(space_element):
         ).text.strip()
 
         # RACK NUMBERS
+        # rack_numbers = rack_numbers_elements[0].text.strip()
         rack_numbers = space_element.find_element(
             By.CLASS_NAME,
             "rack-numbers"
