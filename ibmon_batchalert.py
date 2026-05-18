@@ -124,14 +124,16 @@ def parse_tooltip_table(
                     header_data,
                     server_data
                 )
-
                 print(
+                    "\033[1;31m"
                     f"ALERT: {loc_value} | "
                     f"{serial_value} | "
                     f"{network_status} | "
                     f"{power_status} | "
-                    f"{status_value}"
-                )
+                    f"{status_value} | " 
+                    f"{station_value} | "
+                    f"{idle_time_value}"
+                    "\033[0m"
             else:
                 if settings["show_ok_status_aswell"]:
                     print(
