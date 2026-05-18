@@ -161,7 +161,7 @@ def parse_tooltip_header(tooltip):
             ).strip()
     return {
         "location": location,
-        "serial": serial,
+        "rack_serial_number": serial,
         "time_in_test": time_in_test
     }
 
