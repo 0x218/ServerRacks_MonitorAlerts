@@ -30,6 +30,9 @@ from utils_ibmrack import (
 from utils_config import (
     load_config
 )
+from utils_misc import print_execution_seconds
+
+
 
 sheet_name = "Detailed"
 
@@ -454,16 +457,7 @@ def main():
 # =========================================================
 if __name__ == "__main__":
     start_time = time.time()
-
     main()
-
     end_time = time.time()
-    execution_seconds = end_time - start_time
-    execution_minutes = execution_seconds / 60
     print("\nIBMRACK deep parser completed successfully!" )
-
-    print(
-        f"Total Execution Time: "
-        f"{execution_seconds:.2f} seconds "
-        f"({execution_minutes:.2f} minutes)"
-    )
+    print_execution_seconds(start_time, end_time)
