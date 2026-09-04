@@ -15,6 +15,7 @@ import ibmrack_batchalert
 import ibmrack_rack_alert
 import ibmrack_base_parser
 import ibmrack_deep_parser
+import rack_assignment
 
 def print_help():
 
@@ -24,12 +25,14 @@ def print_help():
     print("  ibmrackparser batchalert")
     print("  ibmrackparser simplescan")
     print("  ibmrackparser deepscan")
+    print("  adamparser assignrack")
 
     print("\nCommands and Purpose:")
     print("  rackalert   -> Monitor specific racks and write into alert.log file")
     print("  batchalert  -> Scan all racks in the pod and write into alert.log file")
     print("  simplescan  -> Scans the home page, writes Zora's status into Excel file")
     print("  deepscan    -> Opens each rack's detailed page, writes status into Excel file")
+    print("  assignrack  -> Opens the excel file named 'assignment.xls', read the rack list, read the tech count and assign racks")
     print("\n------------------------------------------:")
     print(" Designed & developed by: Renjith Kumar.")
     print(" Release date: 05/15/2026.")
@@ -57,6 +60,10 @@ def main():
 
     elif mode == "deepscan":
             ibmrack_deep_parser.main()
+        
+    elif mode == "assignrack":
+        rack_assignment.main()
+        
     else:
         print_help()
 
